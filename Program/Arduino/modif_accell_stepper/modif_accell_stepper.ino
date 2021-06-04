@@ -26,8 +26,8 @@ long receivedSteps = 0; //Number of steps
 long receivedSpeed = 0; //Steps / second
 long receivedAcceleration = 0; //Steps / second^2
 char receivedCommand;
-#define dirPin 9
-#define stepPin 8
+#define dirPin A2
+#define stepPin A3
 #define motorInterfaceType 1
 //-------------------------------------------------------------------------------
 int directionMultiplier = 1; // = 1: positive direction, = -1: negative direction
@@ -36,13 +36,13 @@ bool newData, runallowed = false; // booleans for new data from serial, and runa
 AccelStepper stepper = AccelStepper(motorInterfaceType, stepPin, dirPin); 
 void setup()
 {
-    Serial.begin(9600); //define baud rate
+    Serial.begin(115200); //define baud rate
     Serial.println("Demonstration of AccelStepper Library"); //print a messages
     Serial.println("Send 'C' for printing the commands.");
  
     //setting up some default values for maximum speed and maximum acceleration
     Serial.println("Default speed: 400 steps/s, default acceleration: 800 steps/s^2.");
-    stepper.setMaxSpeed(5000); //SPEED = Steps / second
+    stepper.setMaxSpeed(2500); //SPEED = Steps / second
     stepper.setAcceleration(5000); //ACCELERATION = Steps /(second)^2
  
     stepper.disableOutputs(); //disable outputs
@@ -200,7 +200,7 @@ void GoHome()
     }
     else
     {
-        stepper.setMaxSpeed(5000); //set speed manually to 400. In this project 400 is 400 step/sec = 1 rev/sec.
+        stepper.setMaxSpeed(2500); //set speed manually to 400. In this project 400 is 400 step/sec = 1 rev/sec.
         stepper.moveTo(0); //set abolute distance to move
     }
 }
