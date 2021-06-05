@@ -1,5 +1,8 @@
 {
     "move-up":3200,
     "move-down":3200,
-    "press":19200
+    "press":12000,
+    "graph-range-l":0,
+    "graph-range-h":10000,
+    "graph-width":200
 }

@@ -37,6 +37,7 @@ String rotaryMode = "off";
 JSONObject config;
 void setup() {
   size(900, 600);
+  surface.setTitle("Alat Uji Tekan - TM UGM");
   img_master=loadImage("bg.png");
   cp5 = new ControlP5(this); 
   setup_graph();
